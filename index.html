@@ -3,13 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>أبو أويس للسفر</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<title>تسجيل الدخول</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{--blue:#0A2E6E; --green:#00A67E; --gray:#F1F3F4}
-*{box-sizing:border-box; font-family:'Cairo', sans-serif}
+:root{
+  --google-blue:#1a73e8;
+  --google-gray:#5f6368;
+  --google-border:#dadce0;
+  --google-bg:#fff;
+  --page-bg:#f5f5f5;
+}
+*{box-sizing:border-box; font-family:'Roboto', 'Cairo', sans-serif}
 body{
-  background:var(--gray); 
+  background:var(--page-bg); 
   margin:0; 
   display:flex; 
   justify-content:center; 
@@ -18,61 +24,63 @@ body{
   padding:20px
 }
 .login-box{
-  background:white; 
+  background:var(--google-bg); 
   width:100%;
   max-width:450px; 
-  padding:40px 35px; 
+  padding:48px 40px 36px; 
   border-radius:8px;
-  border:1px solid #dadce0;
-  box-shadow:0 1px 3px rgba(0,0,0,0.12)
+  border:1px solid var(--google-border);
 }
-.logo{text-align:center; margin-bottom:30px} /* زودت المسافة شوية */
-.logo h2{color:var(--blue); font-size:24px; margin:0}
-.logo span{color:var(--green); font-weight:700}
+.logo{text-align:center; margin-bottom:24px}
+.logo h2{color:#202124; font-size:24px; margin:0; font-weight:400}
+.logo span{color:var(--google-blue); font-weight:500}
+
 .form-group{position:relative; margin-bottom:24px}
 .form-group input{
   width:100%; 
-  padding:14px; 
-  border:1px solid #dadce0; 
+  padding:13px 15px; 
+  border:1px solid var(--google-border); 
   border-radius:4px; 
   font-size:16px;
-  outline:none
+  outline:none;
+  color:#202124
 }
-.form-group input:focus{border:2px solid var(--green)}
+.form-group input:focus{border:2px solid var(--google-blue)}
 .form-group label{
   position:absolute;
-  top:14px; right:14px;
-  color:#5f6368; font-size:16px;
+  top:13px; right:15px;
+  color:var(--google-gray); font-size:16px;
   pointer-events:none;
-  transition:0.2s;
-  background:white; padding:0 4px
+  transition:0.15s;
+  background:var(--google-bg); padding:0 4px
 }
 .form-group input:focus + label,
 .form-group input:not(:placeholder-shown) + label{
-  top:-8px; font-size:12px; color:var(--green)
+  top:-8px; font-size:12px; color:var(--google-blue)
 }
 .btn{
   width:100%; 
-  padding:12px; 
-  background:var(--green); 
+  padding:10px 24px; 
+  background:var(--google-blue); 
   color:white; 
   border:none; 
   border-radius:4px;
-  font-size:16px; 
-  font-weight:700; 
+  font-size:14px; 
+  font-weight:500; 
   cursor:pointer;
-  margin-top:10px
+  margin-top:8px;
+  letter-spacing:0.25px
 }
-.btn:hover{background:#008f6c}
+.btn:hover{background:#1765cc; box-shadow:0 1px 2px 0 rgba(60,64,67,.30)}
 .footer-text{
   text-align:center; 
-  margin-top:30px; 
-  font-size:14px; 
-  color:#5f6368
+  margin-top:28px; 
+  font-size:12px; 
+  color:var(--google-gray)
 }
-.footer-text b{color:var(--blue)}
+.footer-text b{color:#202124; font-weight:500}
 .hidden{display:none}
-.msg{margin-top:15px; padding:12px; border-radius:4px; text-align:center; font-weight:600; display:none}
+.msg{margin-top:15px; padding:12px; border-radius:4px; text-align:center; font-size:14px; display:none}
 .msg.show{display:block}
 .success{background:#e6f4ea; color:#137333; border:1px solid #137333}
 .error{background:#fce8e6; color:#c5221f; border:1px solid #c5221f}
@@ -84,8 +92,6 @@ body{
   <div class="logo">
     <h2>أبو <span>أويس</span> للسفر والسياحة</h2>
   </div>
-
-  <!-- شلت h1 و subtitle -->
 
   <!-- فورم التسجيل -->
   <form id="regForm">

@@ -14,11 +14,10 @@
   --g-gray:#5f6368;
   --g-border:#dadce0;
   --g-bg:#fff;
-  --page-bg:#f5f5f5;
 }
 *{box-sizing:border-box; font-family:'Roboto', 'Cairo', sans-serif}
 body{
-  background:linear-gradient(135deg, var(--g-blue), var(--g-red), var(--g-yellow), var(--g-green)); 
+  background:#fff; /* خلفية بيضا */
   margin:0; 
   display:flex; 
   justify-content:center; 
@@ -31,9 +30,8 @@ body{
   width:100%;
   max-width:450px; 
   padding:48px 40px 36px; 
-  border-radius:12px;
-  border:2px solid var(--g-border);
-  box-shadow:0 8px 24px rgba(0,0,0,0.15)
+  border-radius:8px;
+  border:1px solid var(--g-border);
 }
 .logo{text-align:center; margin-bottom:30px}
 .logo h2{font-size:28px; margin:0; font-weight:500; letter-spacing:-1px}
@@ -49,16 +47,15 @@ body{
 .form-group input{
   width:100%; 
   padding:13px 15px; 
-  border:2px solid var(--g-border); 
-  border-radius:6px; 
+  border:1px solid var(--g-border); 
+  border-radius:4px; 
   font-size:16px;
   outline:none;
-  color:#202124;
-  transition:0.2s
+  color:#202124
 }
-/* الوان البوردر بتتغير حسب الفوكس */
-.form-group:nth-child(1) input:focus{border-color:var(--g-blue)}
-.form-group:nth-child(2) input:focus{border-color:var(--g-red)}
+/* اول حقل ازرق - تاني حقل احمر */
+.form-group:nth-child(1) input:focus{border:2px solid var(--g-blue)}
+.form-group:nth-child(2) input:focus{border:2px solid var(--g-red)}
 
 .form-group label{
   position:absolute;
@@ -77,19 +74,17 @@ body{
 
 .btn{
   width:100%; 
-  padding:12px 24px; 
-  background:linear-gradient(90deg, var(--g-blue), var(--g-green)); /* جرادينت */
+  padding:10px 24px; 
+  background:var(--g-blue); /* الزرار ازرق */
   color:white; 
   border:none; 
-  border-radius:6px;
-  font-size:15px; 
-  font-weight:700; 
+  border-radius:4px;
+  font-size:14px; 
+  font-weight:500; 
   cursor:pointer;
-  margin-top:8px;
-  transition:0.3s
+  margin-top:8px
 }
-.btn:hover{background:linear-gradient(90deg, var(--g-green), var(--g-yellow)); transform:translateY(-1px)}
-.btn:active{background:linear-gradient(90deg, var(--g-yellow), var(--g-red))}
+.btn:hover{background:#357ae8}
 
 .footer-text{
   text-align:center; 
@@ -97,14 +92,19 @@ body{
   font-size:12px; 
   color:var(--g-gray)
 }
-.footer-text b{color:var(--g-blue); font-weight:700}
+/* اسم الشركة ملون */
+.footer-text .c1{color:var(--g-blue)}
+.footer-text .c2{color:var(--g-red)}
+.footer-text .c3{color:var(--g-yellow)}
+.footer-text .c4{color:var(--g-green)}
+.footer-text .c5{color:var(--g-gray)}
 .hidden{display:none}
-.msg{margin-top:15px; padding:12px; border-radius:6px; text-align:center; font-size:14px; font-weight:600; display:none; border:2px solid}
+.msg{margin-top:15px; padding:12px; border-radius:4px; text-align:center; font-size:14px; font-weight:600; display:none}
 .msg.show{display:block}
-.success{background:#e6f4ea; color:var(--g-green); border-color:var(--g-green)}
-.error{background:#fce8e6; color:var(--g-red); border-color:var(--g-red)}
-.info{background:#e8f0fe; color:var(--g-blue); border-color:var(--g-blue)}
-.warning{background:#fef7e0; color:var(--g-yellow); border-color:var(--g-yellow)}
+.success{color:var(--g-green)} /* اخضر */
+.error{color:var(--g-red)} /* احمر */
+.info{color:var(--g-blue)} /* ازرق */
+.warning{color:var(--g-yellow)} /* اصفر */
 </style>
 </head>
 <body>
@@ -120,7 +120,7 @@ body{
       <span class="b5">و</span>
       <span class="b6">ي</span>
       <span class="b7">س</span>
-      <span style="font-size:16px; font-weight:400;"> للسفر والسياحة</span>
+      <span style="font-size:16px; font-weight:400; color:#202124;"> للسفر والسياحة</span>
     </h2>
   </div>
 
@@ -150,7 +150,10 @@ body{
   </form>
 
   <p class="footer-text">
-    © 2026 <b>أبو أويس للسفر والسياحة</b>
+    © 2026 
+    <span class="c1">أ</span><span class="c2">ب</span><span class="c3">و</span> 
+    <span class="c4">أ</span><span class="c2">و</span><span class="c1">ي</span><span class="c5">س</span> 
+    للسفر والسياحة
   </p>
 </div>
 
@@ -160,7 +163,7 @@ const SCRIPT_URL = 'https://script.google.com/macros/s/XXXXX/exec'; // <-- حط 
 function showMsg(id, text, type){
   const el = document.getElementById(id);
   el.innerHTML = text;
-  el.className = 'msg show ' + type; // success=اخضر, error=احمر, info=ازرق, warning=اصفر
+  el.className = 'msg show ' + type;
 }
 
 // التسجيل
@@ -168,7 +171,7 @@ document.getElementById('regForm').addEventListener('submit', e=>{
   e.preventDefault();
   const btn = document.getElementById('regBtn');
   btn.disabled = true; btn.innerText = 'جاري الإرسال...';
-  showMsg('regMsg', '⏳ جاري ارسال الكود...', 'info'); // ازرق
+  showMsg('regMsg', '⏳ جاري ارسال الكود...', 'info');
   const code = Math.floor(100000 + Math.random() * 900000);
   
   const data = {
@@ -185,15 +188,15 @@ document.getElementById('regForm').addEventListener('submit', e=>{
       verifyEmail.value = regEmail.value;
       document.getElementById('regForm').classList.add('hidden');
       document.getElementById('verifyForm').classList.remove('hidden');
-      showMsg('verifyMsg', '✅ تم ارسال كود التحقق', 'success'); // اخضر
-    } else { showMsg('regMsg','❌ '+res.error,'error') } // احمر
+      showMsg('verifyMsg', '✅ تم ارسال كود التحقق', 'success');
+    } else { showMsg('regMsg','❌ '+res.error,'error') }
   }).finally(()=>{btn.disabled=false; btn.innerText='التالي'})
 });
 
 // التحقق
 document.getElementById('verifyForm').addEventListener('submit', e=>{
   e.preventDefault();
-  showMsg('verifyMsg', '⏳ جاري التأكيد...', 'warning'); // اصفر
+  showMsg('verifyMsg', '⏳ جاري التأكيد...', 'warning');
   const data = {action:"verify", email:verifyEmail.value, code:verifyCode.value};
   fetch(SCRIPT_URL, {method:'POST', body:JSON.stringify(data)})
 .then(res=>res.json()).then(res=>{

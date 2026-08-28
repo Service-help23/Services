@@ -3,125 +3,86 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>تسجيل الدخول - أبو أويس</title>
+<title>تسجيل - أبو أويس</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{--green:#00A67E;--bg:#1F2A36}
 *{box-sizing:border-box; font-family:'Cairo', sans-serif}
 body{background:var(--bg); margin:0; display:flex; justify-content:center; align-items:center; min-height:100vh; padding:20px}
-.card{background:white; width:100%; max-width:420px; padding:35px 30px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.3)}
-h1{text-align:center; color:#000; font-size:28px; margin-bottom:20px}
-.form-group{margin-bottom:15px}
-input{width:100%; padding:14px; border:1px solid #ddd; border-radius:8px; font-size:15px}
+.card{background:white; width:100%; max-width:420px; padding:35px 30px; border-radius:12px}
+h1{text-align:center; color:#000; font-size:26px; margin-bottom:20px}
+input{width:100%; padding:14px; border:1px solid #ddd; border-radius:8px; font-size:15px; margin-bottom:15px}
 .btn{width:100%; padding:14px; background:var(--green); color:white; border:none; border-radius:8px; font-size:17px; font-weight:700; cursor:pointer}
 .hidden{display:none}
-.msg{margin-top:15px; padding:14px; border-radius:8px; text-align:center; font-weight:700; font-size:16px; display:none}
+.msg{margin-top:15px; padding:14px; border-radius:8px; text-align:center; font-weight:700; display:none}
 .msg.show{display:block}
-.success{background:#e8f5e9; color:#2e7d32; border:1px solid #2e7d32}
-.error{background:#ffebee; color:#c62828; border:1px solid #c62828}
-.tabs{display:flex; gap:10px; margin-bottom:20px}
-.tabs button{flex:1; padding:10px; border:1px solid #ddd; background:white; border-radius:8px; cursor:pointer; font-weight:600}
-.tabs button.active{background:var(--green); color:white; border-color:var(--green)}
+.success{background:#e8f5e9; color:#2e7d32}
+.error{background:#ffebee; color:#c62828}
 </style>
 </head>
 <body>
 
 <div class="card">
-  <div class="tabs">
-    <button id="tab-reg" class="active" onclick="showTab('reg')">تسجيل جديد</button>
-    <button id="tab-login" onclick="showTab('login')">تسجيل الدخول</button>
-  </div>
-
-  <!-- 1. التسجيل -->
+  <h1>إنشاء حساب</h1>
   <form id="regForm">
-    <h1>إنشاء حساب</h1>
-    <div class="form-group"><input type="text" id="regName" placeholder="الاسم الكامل" required></div>
-    <div class="form-group"><input type="email" id="regEmail" placeholder="أدخل بريدك الإلكتروني" required></div>
-    <div class="form-group"><input type="password" id="regPassword" placeholder="أدخل كلمة المرور" required></div>
+    <input type="text" id="regName" placeholder="الاسم الكامل" required>
+    <input type="email" id="regEmail" placeholder="البريد الإلكتروني" required>
+    <input type="password" id="regPassword" placeholder="كلمة المرور" required>
     <button type="submit" class="btn" id="regBtn">إنشاء الحساب</button>
     <div id="regMsg" class="msg"></div>
   </form>
 
-  <!-- 2. التحقق - هنا هتظهر الرسالة -->
   <form id="verifyForm" class="hidden">
     <h1>تأكيد البريد</h1>
-    <p style="text-align:center; color:#555; margin-bottom:15px">تم ارسال كود 6 ارقام الى ايميلك</p>
-    <div class="form-group"><input type="text" id="verifyCode" placeholder="ادخل كود التحقق" maxlength="6" required></div>
+    <input type="text" id="verifyCode" placeholder="ادخل كود التحقق" maxlength="6" required>
     <input type="hidden" id="verifyEmail">
-    <button type="submit" class="btn" id="verifyBtn">تأكيد</button>
-    <div id="verifyMsg" class="msg"></div>  <!-- الرسالة هتظهر هنا -->
+    <button type="submit" class="btn">تأكيد</button>
+    <div id="verifyMsg" class="msg"></div>
   </form>
-
-  <!-- 3. تسجيل الدخول -->
-  <form id="loginForm" class="hidden">
-    <h1>تسجيل الدخول</h1>
-    <div class="form-group"><input type="email" id="loginEmail" placeholder="أدخل بريدك الإلكتروني" required></div>
-    <div class="form-group"><input type="password" id="loginPassword" placeholder="أدخل كلمة المرور الخاصة بك" required></div>
-    <button type="submit" class="btn" id="loginBtn">تسجيل الدخول</button>
-    <div id="loginMsg" class="msg"></div>
-  </form>
-
 </div>
 
 <script>
-const SCRIPT_URL = 'https://script.google.com/macros/s/XXXXX/exec'; // <-- غيره
+const SCRIPT_URL = 'حط_الرابط_بتاعك_هنا'; // هنطلعه من الخطوة 2
 
-function showTab(tab){
-  document.querySelectorAll('form').forEach(f=>f.classList.add('hidden'));
-  document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
-  document.getElementById(tab+'Form').classList.remove('hidden');
-  document.getElementById('tab-'+tab).classList.add('active');
-}
 function showMsg(id, text, type){
   const el = document.getElementById(id);
   el.innerHTML = text;
   el.className = 'msg show ' + type;
 }
 
-// 1. التسجيل
+// التسجيل
 document.getElementById('regForm').addEventListener('submit', e=>{
   e.preventDefault();
-  const btn = document.getElementById('regBtn');
-  btn.disabled = true; btn.innerText = 'جاري الارسال...';
   const code = Math.floor(100000 + Math.random() * 900000);
-  const data = {type:"register", name:regName.value, email:regEmail.value, password:regPassword.value, code:code};
-  
+  const data = {
+    action: "register",
+    name: regName.value,
+    email: regEmail.value,
+    password: regPassword.value,
+    code: code,
+    date: new Date().toLocaleString('ar-EG')
+  };
+
   fetch(SCRIPT_URL, {method:'POST', body:JSON.stringify(data)})
 .then(res=>res.json()).then(res=>{
     if(res.result==="success"){
       verifyEmail.value = regEmail.value;
-      showTab('verify');
+      document.getElementById('regForm').classList.add('hidden');
+      document.getElementById('verifyForm').classList.remove('hidden');
       showMsg('verifyMsg', '✅ تم ارسال كود التحقق الى ' + regEmail.value, 'success');
     } else { showMsg('regMsg','❌ '+res.error,'error') }
-  }).finally(()=>{btn.disabled=false; btn.innerText='إنشاء الحساب'})
+  })
 });
 
-// 2. التحقق - الرسالة هتظهر هنا في نفس المكان
+// التحقق
 document.getElementById('verifyForm').addEventListener('submit', e=>{
   e.preventDefault();
-  const btn = document.getElementById('verifyBtn');
-  btn.disabled = true; btn.innerText = 'جاري التأكيد...';
-  const data = {type:"verify", email:verifyEmail.value, code:verifyCode.value};
-  
+  const data = {action:"verify", email:verifyEmail.value, code:verifyCode.value};
   fetch(SCRIPT_URL, {method:'POST', body:JSON.stringify(data)})
 .then(res=>res.json()).then(res=>{
     if(res.result==="success"){
-      // الرسالة دي هتظهر في نفس الصفحة ومش هتحول
       showMsg('verifyMsg','✅ تم تأكيد ايميلك بنجاح','success');
-      document.getElementById('verifyCode').disabled = true; // نقفل الحقل
-      btn.style.display = 'none'; // نخفي الزرار
     } else { showMsg('verifyMsg','❌ الكود غير صحيح','error') }
-  }).finally(()=>{btn.disabled=false; btn.innerText='تأكيد'})
-});
-
-// 3. تسجيل الدخول
-document.getElementById('loginForm').addEventListener('submit', e=>{
-  e.preventDefault();
-  const data = {type:"login", email:loginEmail.value, password:loginPassword.value};
-  fetch(SCRIPT_URL, {method:'POST', body:JSON.stringify(data)})
-.then(res=>res.json()).then(res=>{
-    if(res.result==="success"){ showMsg('loginMsg','✅ تم تسجيل الدخول بنجاح','success') }
-    else { showMsg('loginMsg','❌ '+res.error,'error') }
   })
 });
 </script>

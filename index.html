@@ -26,22 +26,9 @@ body{
   border:1px solid #dadce0;
   box-shadow:0 1px 3px rgba(0,0,0,0.12)
 }
-.logo{text-align:center; margin-bottom:20px}
+.logo{text-align:center; margin-bottom:30px} /* زودت المسافة شوية */
 .logo h2{color:var(--blue); font-size:24px; margin:0}
 .logo span{color:var(--green); font-weight:700}
-.login-box h1{
-  text-align:center; 
-  color:#202124; 
-  font-size:24px; 
-  font-weight:400; 
-  margin-bottom:8px
-}
-.subtitle{
-  text-align:center; 
-  color:#5f6368; 
-  font-size:16px; 
-  margin-bottom:30px
-}
 .form-group{position:relative; margin-bottom:24px}
 .form-group input{
   width:100%; 
@@ -98,12 +85,10 @@ body{
     <h2>أبو <span>أويس</span> للسفر والسياحة</h2>
   </div>
 
-  <h1>مرحبا بك</h1>  <!-- شلت "إنشاء حساب" -->
-  <p class="subtitle">للمتابعة إلى بوابة العملاء</p>
+  <!-- شلت h1 و subtitle -->
 
   <!-- فورم التسجيل -->
   <form id="regForm">
-    <!-- شلت حقل الاسم -->
     <div class="form-group">
       <input type="email" id="regEmail" placeholder=" " required>
       <label>البريد الإلكتروني</label>
@@ -118,8 +103,6 @@ body{
 
   <!-- فورم التحقق -->
   <form id="verifyForm" class="hidden">
-    <h1>تأكيد البريد الإلكتروني</h1>
-    <p class="subtitle">أدخل الكود المكون من 6 أرقام</p>
     <div class="form-group">
       <input type="text" id="verifyCode" placeholder=" " maxlength="6" required>
       <label>رمز التحقق</label>
@@ -129,7 +112,6 @@ body{
     <div id="verifyMsg" class="msg"></div>
   </form>
 
-  <!-- شلت "طبرق، ليبيا" -->
   <p class="footer-text">
     © 2026 <b>أبو أويس للسفر والسياحة</b>
   </p>
@@ -153,7 +135,7 @@ document.getElementById('regForm').addEventListener('submit', e=>{
   
   const data = {
     action: "register",
-    name: "بدون اسم", // عشان الشيت ميبوظش
+    name: "بدون اسم",
     email: regEmail.value, 
     password: regPassword.value, 
     code: code

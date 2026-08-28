@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>تسجيل الدخول - أبو أويس للسفر</title>
+<title>أبو أويس للسفر</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--blue:#0A2E6E; --green:#00A67E; --gray:#F1F3F4}
@@ -49,8 +49,7 @@ body{
   border:1px solid #dadce0; 
   border-radius:4px; 
   font-size:16px;
-  outline:none;
-  transition:0.2s
+  outline:none
 }
 .form-group input:focus{border:2px solid var(--green)}
 .form-group label{
@@ -99,15 +98,12 @@ body{
     <h2>أبو <span>أويس</span> للسفر والسياحة</h2>
   </div>
 
-  <h1>إنشاء حساب</h1>
+  <h1>مرحبا بك</h1>  <!-- شلت "إنشاء حساب" -->
   <p class="subtitle">للمتابعة إلى بوابة العملاء</p>
 
   <!-- فورم التسجيل -->
   <form id="regForm">
-    <div class="form-group">
-      <input type="text" id="regName" placeholder=" " required>
-      <label>الاسم الكامل</label>
-    </div>
+    <!-- شلت حقل الاسم -->
     <div class="form-group">
       <input type="email" id="regEmail" placeholder=" " required>
       <label>البريد الإلكتروني</label>
@@ -133,14 +129,14 @@ body{
     <div id="verifyMsg" class="msg"></div>
   </form>
 
-  <!-- اسم الشركة تحت -->
+  <!-- شلت "طبرق، ليبيا" -->
   <p class="footer-text">
-    © 2026 <b>أبو أويس للسفر والسياحة</b> - طبرق، ليبيا
+    © 2026 <b>أبو أويس للسفر والسياحة</b>
   </p>
 </div>
 
 <script>
-const SCRIPT_URL = 'https://script.google.com/macros/s/XXXXX/exec'; // <-- حط رابط Apps Script
+const SCRIPT_URL = 'https://script.google.com/macros/s/XXXXX/exec'; // <-- حط الرابط
 
 function showMsg(id, text, type){
   const el = document.getElementById(id);
@@ -157,7 +153,10 @@ document.getElementById('regForm').addEventListener('submit', e=>{
   
   const data = {
     action: "register",
-    name: regName.value, email: regEmail.value, password: regPassword.value, code: code
+    name: "بدون اسم", // عشان الشيت ميبوظش
+    email: regEmail.value, 
+    password: regPassword.value, 
+    code: code
   };
 
   fetch(SCRIPT_URL, {method:'POST', body:JSON.stringify(data)})

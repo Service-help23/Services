@@ -3,172 +3,380 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>تسجيل الدخول</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --google-blue:#1a73e8;
-  --google-gray:#5f6368;
-  --google-border:#dadce0;
-  --google-bg:#fff;
-  --page-bg:#f5f5f5;
-}
-*{box-sizing:border-box; font-family:'Roboto', 'Cairo', sans-serif}
-body{
-  background:var(--page-bg); 
-  margin:0; 
-  display:flex; 
-  justify-content:center; 
-  align-items:center; 
-  min-height:100vh; 
-  padding:20px
-}
-.login-box{
-  background:var(--google-bg); 
-  width:100%;
-  max-width:450px; 
-  padding:48px 40px 36px; 
-  border-radius:8px;
-  border:1px solid var(--google-border);
-}
-.logo{text-align:center; margin-bottom:24px}
-.logo h2{color:#202124; font-size:24px; margin:0; font-weight:400}
-.logo span{color:var(--google-blue); font-weight:500}
 
-.form-group{position:relative; margin-bottom:24px}
-.form-group input{
-  width:100%; 
-  padding:13px 15px; 
-  border:1px solid var(--google-border); 
-  border-radius:4px; 
-  font-size:16px;
-  outline:none;
-  color:#202124
+<title>تسجيل الدخول</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
-.form-group input:focus{border:2px solid var(--google-blue)}
-.form-group label{
-  position:absolute;
-  top:13px; right:15px;
-  color:var(--google-gray); font-size:16px;
-  pointer-events:none;
-  transition:0.15s;
-  background:var(--google-bg); padding:0 4px
+
+body {
+    font-family: "Cairo", sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #eef4ff, #dce8ff);
+    padding: 20px;
 }
-.form-group input:focus + label,
-.form-group input:not(:placeholder-shown) + label{
-  top:-8px; font-size:12px; color:var(--google-blue)
+
+.login-container {
+    width: 100%;
+    max-width: 430px;
 }
-.btn{
-  width:100%; 
-  padding:10px 24px; 
-  background:var(--google-blue); 
-  color:white; 
-  border:none; 
-  border-radius:4px;
-  font-size:14px; 
-  font-weight:500; 
-  cursor:pointer;
-  margin-top:8px;
-  letter-spacing:0.25px
+
+.login-box {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 40px 35px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
 }
-.btn:hover{background:#1765cc; box-shadow:0 1px 2px 0 rgba(60,64,67,.30)}
-.footer-text{
-  text-align:center; 
-  margin-top:28px; 
-  font-size:12px; 
-  color:var(--google-gray)
+
+.logo {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 20px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #1769ff, #0047c7);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 800;
 }
-.footer-text b{color:#202124; font-weight:500}
-.hidden{display:none}
-.msg{margin-top:15px; padding:12px; border-radius:4px; text-align:center; font-size:14px; display:none}
-.msg.show{display:block}
-.success{background:#e6f4ea; color:#137333; border:1px solid #137333}
-.error{background:#fce8e6; color:#c5221f; border:1px solid #c5221f}
+
+h1 {
+    text-align: center;
+    color: #172033;
+    font-size: 27px;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #7b8496;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    color: #30394b;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+input {
+    width: 100%;
+    height: 54px;
+    border: 1px solid #dce1e9;
+    border-radius: 13px;
+    padding: 0 16px;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: 0.25s;
+    background: #fafbfc;
+}
+
+input:focus {
+    border-color: #1769ff;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(23, 105, 255, 0.08);
+}
+
+.password-input {
+    padding-left: 50px;
+}
+
+.show-password {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 19px;
+    color: #697386;
+}
+
+.options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px 0 25px;
+    font-size: 13px;
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #626c7d;
+}
+
+.remember input {
+    width: 16px;
+    height: 16px;
+    accent-color: #1769ff;
+}
+
+.forgot {
+    color: #1769ff;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.login-btn {
+    width: 100%;
+    height: 55px;
+    border: none;
+    border-radius: 13px;
+    background: linear-gradient(135deg, #1769ff, #0052d4);
+    color: white;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(23, 105, 255, 0.25);
+}
+
+.login-btn:active {
+    transform: scale(0.98);
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 28px 0;
+    color: #9aa2b1;
+    font-size: 13px;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #e5e8ee;
+}
+
+.google-btn {
+    width: 100%;
+    height: 52px;
+    border: 1px solid #dce1e9;
+    border-radius: 13px;
+    background: white;
+    color: #30394b;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.google-btn:hover {
+    background: #f7f9fc;
+}
+
+.signup {
+    text-align: center;
+    margin-top: 27px;
+    color: #737c8d;
+    font-size: 14px;
+}
+
+.signup a {
+    color: #1769ff;
+    text-decoration: none;
+    font-weight: 800;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 18px;
+    color: #8992a2;
+    font-size: 12px;
+}
+
+/* الموبايل */
+@media (max-width: 480px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .login-box {
+        padding: 32px 22px;
+        border-radius: 20px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .subtitle {
+        font-size: 13px;
+    }
+}
 </style>
 </head>
+
 <body>
 
-<div class="login-box">
-  <div class="logo">
-    <h2>أبو <span>أويس</span> للسفر والسياحة</h2>
-  </div>
+<div class="login-container">
 
-  <!-- فورم التسجيل -->
-  <form id="regForm">
-    <div class="form-group">
-      <input type="email" id="regEmail" placeholder=" " required>
-      <label>البريد الإلكتروني</label>
-    </div>
-    <div class="form-group">
-      <input type="password" id="regPassword" placeholder=" " required>
-      <label>كلمة المرور</label>
-    </div>
-    <button type="submit" class="btn" id="regBtn">التالي</button>
-    <div id="regMsg" class="msg"></div>
-  </form>
+    <div class="login-box">
 
-  <!-- فورم التحقق -->
-  <form id="verifyForm" class="hidden">
-    <div class="form-group">
-      <input type="text" id="verifyCode" placeholder=" " maxlength="6" required>
-      <label>رمز التحقق</label>
-    </div>
-    <input type="hidden" id="verifyEmail">
-    <button type="submit" class="btn">تأكيد</button>
-    <div id="verifyMsg" class="msg"></div>
-  </form>
+        <div class="logo">S</div>
 
-  <p class="footer-text">
-    © 2026 <b>أبو أويس للسفر والسياحة</b>
-  </p>
+        <h1>تسجيل الدخول</h1>
+
+        <p class="subtitle">
+            أدخل بيانات حسابك للمتابعة
+        </p>
+
+        <form id="loginForm">
+
+            <div class="input-group">
+                <label for="email">البريد الإلكتروني</label>
+
+                <div class="input-wrapper">
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="example@email.com"
+                        autocomplete="email"
+                        required
+                    >
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="password">كلمة المرور</label>
+
+                <div class="input-wrapper">
+
+                    <input
+                        type="password"
+                        id="password"
+                        class="password-input"
+                        placeholder="أدخل كلمة المرور"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        class="show-password"
+                        id="showPassword"
+                        aria-label="إظهار كلمة المرور"
+                    >
+                        👁
+                    </button>
+
+                </div>
+            </div>
+
+            <div class="options">
+
+                <label class="remember">
+                    <input type="checkbox" id="remember">
+                    تذكرني
+                </label>
+
+                <a href="#" class="forgot">
+                    نسيت كلمة المرور؟
+                </a>
+
+            </div>
+
+            <button type="submit" class="login-btn">
+                تسجيل الدخول
+            </button>
+
+        </form>
+
+        <div class="divider">
+            أو
+        </div>
+
+        <button class="google-btn" type="button">
+            🔵 &nbsp; المتابعة باستخدام Google
+        </button>
+
+        <div class="signup">
+            ليس لديك حساب؟
+            <a href="#">إنشاء حساب جديد</a>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        © 2026 جميع الحقوق محفوظة
+    </div>
+
 </div>
 
 <script>
-const SCRIPT_URL = 'https://script.google.com/macros/s/XXXXX/exec'; // <-- حط الرابط
 
-function showMsg(id, text, type){
-  const el = document.getElementById(id);
-  el.innerHTML = text;
-  el.className = 'msg show ' + type;
-}
+const password = document.getElementById("password");
+const showPassword = document.getElementById("showPassword");
 
-// التسجيل
-document.getElementById('regForm').addEventListener('submit', e=>{
-  e.preventDefault();
-  const btn = document.getElementById('regBtn');
-  btn.disabled = true; btn.innerText = 'جاري الإرسال...';
-  const code = Math.floor(100000 + Math.random() * 900000);
-  
-  const data = {
-    action: "register",
-    name: "بدون اسم",
-    email: regEmail.value, 
-    password: regPassword.value, 
-    code: code
-  };
+showPassword.addEventListener("click", function () {
 
-  fetch(SCRIPT_URL, {method:'POST', body:JSON.stringify(data)})
-.then(res=>res.json()).then(res=>{
-    if(res.result==="success"){
-      verifyEmail.value = regEmail.value;
-      document.getElementById('regForm').classList.add('hidden');
-      document.getElementById('verifyForm').classList.remove('hidden');
-      showMsg('verifyMsg', '✅ تم ارسال كود التحقق الى ' + regEmail.value, 'success');
-    } else { showMsg('regMsg','❌ '+res.error,'error') }
-  }).finally(()=>{btn.disabled=false; btn.innerText='التالي'})
+    if (password.type === "password") {
+
+        password.type = "text";
+        showPassword.textContent = "🙈";
+
+    } else {
+
+        password.type = "password";
+        showPassword.textContent = "👁";
+
+    }
+
 });
 
-// التحقق
-document.getElementById('verifyForm').addEventListener('submit', e=>{
-  e.preventDefault();
-  const data = {action:"verify", email:verifyEmail.value, code:verifyCode.value};
-  fetch(SCRIPT_URL, {method:'POST', body:JSON.stringify(data)})
-.then(res=>res.json()).then(res=>{
-    if(res.result==="success"){
-      showMsg('verifyMsg','✅ تم تأكيد ايميلك بنجاح','success');
-    } else { showMsg('verifyMsg','❌ الكود غير صحيح','error') }
-  })
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const passwordValue = document.getElementById("password").value;
+
+    if (!email || !passwordValue) {
+        alert("يرجى إدخال البريد الإلكتروني وكلمة المرور");
+        return;
+    }
+
+    alert("تم إرسال بيانات تسجيل الدخول");
+
 });
+
 </script>
+
 </body>
 </html>

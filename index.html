@@ -18,7 +18,7 @@
 }
 *{box-sizing:border-box; font-family:'Roboto', 'Cairo', sans-serif}
 body{
-  background:var(--page-bg); 
+  background:linear-gradient(135deg, var(--g-blue), var(--g-red), var(--g-yellow), var(--g-green)); 
   margin:0; 
   display:flex; 
   justify-content:center; 
@@ -31,30 +31,35 @@ body{
   width:100%;
   max-width:450px; 
   padding:48px 40px 36px; 
-  border-radius:8px;
-  border:1px solid var(--g-border);
+  border-radius:12px;
+  border:2px solid var(--g-border);
+  box-shadow:0 8px 24px rgba(0,0,0,0.15)
 }
-.logo{text-align:center; margin-bottom:24px}
+.logo{text-align:center; margin-bottom:30px}
 .logo h2{font-size:28px; margin:0; font-weight:500; letter-spacing:-1px}
-.logo .b1{color:var(--g-blue)}   /* أ */
-.logo .b2{color:var(--g-red)}    /* ب */
-.logo .b3{color:var(--g-yellow)} /* و */
-.logo .b4{color:var(--g-blue)}   /* أ */
-.logo .b5{color:var(--g-green)}  /* و */
-.logo .b6{color:var(--g-red)}    /* ي */
-.logo .b7{color:var(--g-gray)}   /* س */
+.logo .b1{color:var(--g-blue)}
+.logo .b2{color:var(--g-red)}
+.logo .b3{color:var(--g-yellow)}
+.logo .b4{color:var(--g-blue)}
+.logo .b5{color:var(--g-green)}
+.logo .b6{color:var(--g-red)}
+.logo .b7{color:var(--g-gray)}
 
 .form-group{position:relative; margin-bottom:24px}
 .form-group input{
   width:100%; 
   padding:13px 15px; 
-  border:1px solid var(--g-border); 
-  border-radius:4px; 
+  border:2px solid var(--g-border); 
+  border-radius:6px; 
   font-size:16px;
   outline:none;
-  color:#202124
+  color:#202124;
+  transition:0.2s
 }
-.form-group input:focus{border:2px solid var(--g-blue)}
+/* الوان البوردر بتتغير حسب الفوكس */
+.form-group:nth-child(1) input:focus{border-color:var(--g-blue)}
+.form-group:nth-child(2) input:focus{border-color:var(--g-red)}
+
 .form-group label{
   position:absolute;
   top:13px; right:15px;
@@ -65,33 +70,41 @@ body{
 }
 .form-group input:focus + label,
 .form-group input:not(:placeholder-shown) + label{
-  top:-8px; font-size:12px; color:var(--g-blue)
+  top:-8px; font-size:12px; 
 }
+.form-group:nth-child(1) input:focus + label{color:var(--g-blue)}
+.form-group:nth-child(2) input:focus + label{color:var(--g-red)}
+
 .btn{
   width:100%; 
-  padding:10px 24px; 
-  background:var(--g-blue); /* الزرار ازرق جوجل */
+  padding:12px 24px; 
+  background:linear-gradient(90deg, var(--g-blue), var(--g-green)); /* جرادينت */
   color:white; 
   border:none; 
-  border-radius:4px;
-  font-size:14px; 
-  font-weight:500; 
+  border-radius:6px;
+  font-size:15px; 
+  font-weight:700; 
   cursor:pointer;
-  margin-top:8px
+  margin-top:8px;
+  transition:0.3s
 }
-.btn:hover{background:#357ae8; box-shadow:0 1px 2px 0 rgba(60,64,67,.30)}
+.btn:hover{background:linear-gradient(90deg, var(--g-green), var(--g-yellow)); transform:translateY(-1px)}
+.btn:active{background:linear-gradient(90deg, var(--g-yellow), var(--g-red))}
+
 .footer-text{
   text-align:center; 
   margin-top:28px; 
   font-size:12px; 
   color:var(--g-gray)
 }
-.footer-text b{color:#202124; font-weight:500}
+.footer-text b{color:var(--g-blue); font-weight:700}
 .hidden{display:none}
-.msg{margin-top:15px; padding:12px; border-radius:4px; text-align:center; font-size:14px; display:none}
+.msg{margin-top:15px; padding:12px; border-radius:6px; text-align:center; font-size:14px; font-weight:600; display:none; border:2px solid}
 .msg.show{display:block}
-.success{background:#e6f4ea; color:var(--g-green); border:1px solid var(--g-green)}
-.error{background:#fce8e6; color:var(--g-red); border:1px solid var(--g-red)}
+.success{background:#e6f4ea; color:var(--g-green); border-color:var(--g-green)}
+.error{background:#fce8e6; color:var(--g-red); border-color:var(--g-red)}
+.info{background:#e8f0fe; color:var(--g-blue); border-color:var(--g-blue)}
+.warning{background:#fef7e0; color:var(--g-yellow); border-color:var(--g-yellow)}
 </style>
 </head>
 <body>
@@ -147,7 +160,7 @@ const SCRIPT_URL = 'https://script.google.com/macros/s/XXXXX/exec'; // <-- حط 
 function showMsg(id, text, type){
   const el = document.getElementById(id);
   el.innerHTML = text;
-  el.className = 'msg show ' + type;
+  el.className = 'msg show ' + type; // success=اخضر, error=احمر, info=ازرق, warning=اصفر
 }
 
 // التسجيل
@@ -155,6 +168,7 @@ document.getElementById('regForm').addEventListener('submit', e=>{
   e.preventDefault();
   const btn = document.getElementById('regBtn');
   btn.disabled = true; btn.innerText = 'جاري الإرسال...';
+  showMsg('regMsg', '⏳ جاري ارسال الكود...', 'info'); // ازرق
   const code = Math.floor(100000 + Math.random() * 900000);
   
   const data = {
@@ -171,14 +185,15 @@ document.getElementById('regForm').addEventListener('submit', e=>{
       verifyEmail.value = regEmail.value;
       document.getElementById('regForm').classList.add('hidden');
       document.getElementById('verifyForm').classList.remove('hidden');
-      showMsg('verifyMsg', '✅ تم ارسال كود التحقق الى ' + regEmail.value, 'success');
-    } else { showMsg('regMsg','❌ '+res.error,'error') }
+      showMsg('verifyMsg', '✅ تم ارسال كود التحقق', 'success'); // اخضر
+    } else { showMsg('regMsg','❌ '+res.error,'error') } // احمر
   }).finally(()=>{btn.disabled=false; btn.innerText='التالي'})
 });
 
 // التحقق
 document.getElementById('verifyForm').addEventListener('submit', e=>{
   e.preventDefault();
+  showMsg('verifyMsg', '⏳ جاري التأكيد...', 'warning'); // اصفر
   const data = {action:"verify", email:verifyEmail.value, code:verifyCode.value};
   fetch(SCRIPT_URL, {method:'POST', body:JSON.stringify(data)})
 .then(res=>res.json()).then(res=>{

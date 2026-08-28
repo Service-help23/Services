@@ -7,10 +7,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --google-blue:#1a73e8;
-  --google-gray:#5f6368;
-  --google-border:#dadce0;
-  --google-bg:#fff;
+  --g-blue:#4285F4;   /* G */
+  --g-red:#DB4437;    /* o */
+  --g-yellow:#F4B400; /* o */
+  --g-green:#0F9D58;  /* g */
+  --g-gray:#5f6368;
+  --g-border:#dadce0;
+  --g-bg:#fff;
   --page-bg:#f5f5f5;
 }
 *{box-sizing:border-box; font-family:'Roboto', 'Cairo', sans-serif}
@@ -24,73 +27,88 @@ body{
   padding:20px
 }
 .login-box{
-  background:var(--google-bg); 
+  background:var(--g-bg); 
   width:100%;
   max-width:450px; 
   padding:48px 40px 36px; 
   border-radius:8px;
-  border:1px solid var(--google-border);
+  border:1px solid var(--g-border);
 }
 .logo{text-align:center; margin-bottom:24px}
-.logo h2{color:#202124; font-size:24px; margin:0; font-weight:400}
-.logo span{color:var(--google-blue); font-weight:500}
+.logo h2{font-size:28px; margin:0; font-weight:500; letter-spacing:-1px}
+.logo .b1{color:var(--g-blue)}   /* أ */
+.logo .b2{color:var(--g-red)}    /* ب */
+.logo .b3{color:var(--g-yellow)} /* و */
+.logo .b4{color:var(--g-blue)}   /* أ */
+.logo .b5{color:var(--g-green)}  /* و */
+.logo .b6{color:var(--g-red)}    /* ي */
+.logo .b7{color:var(--g-gray)}   /* س */
 
 .form-group{position:relative; margin-bottom:24px}
 .form-group input{
   width:100%; 
   padding:13px 15px; 
-  border:1px solid var(--google-border); 
+  border:1px solid var(--g-border); 
   border-radius:4px; 
   font-size:16px;
   outline:none;
   color:#202124
 }
-.form-group input:focus{border:2px solid var(--google-blue)}
+.form-group input:focus{border:2px solid var(--g-blue)}
 .form-group label{
   position:absolute;
   top:13px; right:15px;
-  color:var(--google-gray); font-size:16px;
+  color:var(--g-gray); font-size:16px;
   pointer-events:none;
   transition:0.15s;
-  background:var(--google-bg); padding:0 4px
+  background:var(--g-bg); padding:0 4px
 }
 .form-group input:focus + label,
 .form-group input:not(:placeholder-shown) + label{
-  top:-8px; font-size:12px; color:var(--google-blue)
+  top:-8px; font-size:12px; color:var(--g-blue)
 }
 .btn{
   width:100%; 
   padding:10px 24px; 
-  background:var(--google-blue); 
+  background:var(--g-blue); /* الزرار ازرق جوجل */
   color:white; 
   border:none; 
   border-radius:4px;
   font-size:14px; 
   font-weight:500; 
   cursor:pointer;
-  margin-top:8px;
-  letter-spacing:0.25px
+  margin-top:8px
 }
-.btn:hover{background:#1765cc; box-shadow:0 1px 2px 0 rgba(60,64,67,.30)}
+.btn:hover{background:#357ae8; box-shadow:0 1px 2px 0 rgba(60,64,67,.30)}
 .footer-text{
   text-align:center; 
   margin-top:28px; 
   font-size:12px; 
-  color:var(--google-gray)
+  color:var(--g-gray)
 }
 .footer-text b{color:#202124; font-weight:500}
 .hidden{display:none}
 .msg{margin-top:15px; padding:12px; border-radius:4px; text-align:center; font-size:14px; display:none}
 .msg.show{display:block}
-.success{background:#e6f4ea; color:#137333; border:1px solid #137333}
-.error{background:#fce8e6; color:#c5221f; border:1px solid #c5221f}
+.success{background:#e6f4ea; color:var(--g-green); border:1px solid var(--g-green)}
+.error{background:#fce8e6; color:var(--g-red); border:1px solid var(--g-red)}
 </style>
 </head>
 <body>
 
 <div class="login-box">
   <div class="logo">
-    <h2>أبو <span>أويس</span> للسفر والسياحة</h2>
+    <h2>
+      <span class="b1">أ</span>
+      <span class="b2">ب</span>
+      <span class="b3">و</span>
+      <span class="b4"> </span>
+      <span class="b4">أ</span>
+      <span class="b5">و</span>
+      <span class="b6">ي</span>
+      <span class="b7">س</span>
+      <span style="font-size:16px; font-weight:400;"> للسفر والسياحة</span>
+    </h2>
   </div>
 
   <!-- فورم التسجيل -->

